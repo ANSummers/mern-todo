@@ -16,7 +16,7 @@ function App() {
     <Router>
     <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-         <a class="navbar-brand" href="https://ansummers.dev" target="_blank" rel='noreferrer'>
+         <a className="navbar-brand" href="https://ansummers.dev" target="_blank" rel='noreferrer'>
           <img src={logo} width="30" height="30" alt="to do list icon"/>
         </a>
         <Link to="/" className="navbar-brand">MERN-Stack Todo App</Link>
