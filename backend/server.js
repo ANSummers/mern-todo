@@ -43,7 +43,7 @@ const connection = mongoose.connection
 connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
-
+connection.on('change', data => console.log('mongo change: ' + data.toString()))
 todoRoutes.route('/').get(function(req, res) {
     Todo.find(function(err, todos) {
         if (err) {

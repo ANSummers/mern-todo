@@ -12,9 +12,13 @@
  5 hours were spend on setting up the backend
  * Connected to Atlas
  * Created Mongoose Schema
-   * reformatted schema model several times 
-   * couldn't require mongoose. import pkg from 'mongoose' 
+ * couldn't require mongoose. import pkg from 'mongoose' 
+   * 'import' syntax was not enabled in Node.js
+   * Must enable ES Modules in Node.js
+   * added the "type": "module" line in package.json file.
  * Trouble connecting to server
    *  async/await connection to Mongo resolved a pending Promise
- * 
+  
 
+## Future Work
+automatic test
