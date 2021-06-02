@@ -3,13 +3,17 @@ import { json } from 'body-parser';
 import cors from 'cors';
 import  mongoose from 'mongoose';
 import { config as dotenv } from 'dotenv';
+// import bcrypt from 'bcryptjs';
+import {default as Todo} from './src/models/Todo.js';
+import {default as User} from './src/models/User.js';
 
 
-import {default as Todo} from './todomodel.js';
 dotenv()
 const app = express();
 
 const PORT = 4000;
+
+const saltRounds = 10
 
 app.use(cors());
 app.use(json());
@@ -17,6 +21,72 @@ app.use(json());
 const todoRoutes = express.Router();
 
 
+function hashPassword(password) {
+    // hash the password and return it
+
+    return password;
+}
+
+// bcrypt.genSalt(saltRounds, function (err, salt) {
+//   if (err) {
+//     throw err
+//   } else {
+//     bcrypt.hash(password, salt, function(err, hash) {
+//       if (err) {
+//         throw err
+//       } else {
+//         console.log(hash)
+        
+//       }
+//     })
+//   }
+// })
+
+
+app.use('/login', (req, res) => {
+    console.log(password(req.body.password))
+    console.log(req.body.username)
+const username = req.body.username;
+const password = req.body.password;
+
+db.query(
+    "SELECT * FROM users WHERE username = ? AND password = ?",
+    [username, password],
+    (err, result) => {
+        if (err) {
+            res.send({err: err})
+        }
+
+        if (result) {
+        res.send(result);
+        } else {
+        res.send({ message: "Not a registered user"});
+    }
+  }
+);
+
+    
+
+    // if user is in db, return token, otherwise, error
+
+
+//     bcrypt.compare(req.body.password, hash, function(err, isMatch) {
+//   if (err) {
+//     throw err
+//   } else if (!isMatch) {
+//     console.log("Password doesn't match!")
+//   } else {
+//     console.log("Password matches!")
+//   }
+// })
+
+
+    res.send('ok')
+  //res.send({
+  //  username: req.body.username,
+  //  token: 'test123'
+  //});
+});
 
 async function createMongoConnectionFromEnv() {
     const username = process.env.MONGO_USERNAME;
@@ -93,7 +163,9 @@ todoRoutes.route('/update/:id').post(function(req, res) {
 
 app.use('/todos', todoRoutes);
 
+
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);
 });
+
 

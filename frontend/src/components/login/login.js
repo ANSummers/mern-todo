@@ -27,7 +27,7 @@ export default function Login({ setToken }) {
     setToken(token);
   }
 
-  return(
+  return (
     <div className="login-wrapper">
       <h1>Please Log In</h1>
       <form onSubmit={handleSubmit}>
@@ -44,7 +44,7 @@ export default function Login({ setToken }) {
         </div>
       </form>
     </div>
-  )
+  );
 }
 
 Login.propTypes = {
