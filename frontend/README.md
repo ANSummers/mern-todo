@@ -18,6 +18,10 @@ In the project backend, you can run:
 
 ### `node server.js'
 
+_There is one registered user._
+username: abbie
+password: abbie
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\

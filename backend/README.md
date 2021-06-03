@@ -25,11 +25,13 @@
 30th May
 8 hours were spent on JWT and hashing password
 
+- the frontend and backend are essentially two different apps. Each has it's own package.json file. Make sure to install the necessary packages from the intended directory.
+
 31st May
 6 hours were spent on JWT and hashing password
 
 2nd June
-5 hours were spent on JWT and hashing password
+4 hours were spent on JWT and hashing password
 1 hour cleaning up unused code and debugging messages.
 
 3rd June ReadMe
