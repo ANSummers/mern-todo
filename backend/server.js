@@ -46,7 +46,6 @@ app.use("/login", (req, res) => {
           );
 
           res.json({ auth: true, token: token });
-          console.log("Success!");
         } else {
           res.json({
             auth: false,

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./login.css";
-import axios from "axios";
 
 async function loginUser(credentials) {
   return fetch("http://localhost:4000/login", {
@@ -24,16 +23,6 @@ export default function Login({ setToken }) {
       password,
     });
     setToken(token);
-
-    const userAuthenticated = () => {
-      axios
-        .get("http://localhost:4000/isUserAuth", {
-          headers: { "x-access-token": token },
-        })
-        .then((response) => {
-          console.log(response);
-        });
-    };
   };
 
   return (
